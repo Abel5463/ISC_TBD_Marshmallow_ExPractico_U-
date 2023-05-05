@@ -12,7 +12,16 @@ MySQL  localhost:3306 ssl  hospital  SQL > SELECT a.Nombre, a.Apellido_pat, c.Ca
 
 2.-
 
-SELECT a.nombre, a.apellido_pat, b.calle, b.codigo_postal, b.ciudad, b.pais FROM empleados a INNER JOIN direcciones_empleados b ON a.empleado_id = b.empleado_id INNER JOIN direcciones c on b.direcion_id = c.direccion_id WHERE d.pais = 'Brazil'
+ MySQL  localhost:3306 ssl  hospital  SQL > SELECT a.Nombre, a.Apellido_pat, c.Calle, c.Codigo_postal, c.Ciudad, c.Pais from empleados a inner join direcciones_empleados b on a.empleados_id = b.empleados_id inner join direcciones c on b.direccion_id = c.direccion_id where pais ='Brazil';
++----------+--------------+--------------------------+---------------+----------------+--------+
+| Nombre   | Apellido_pat | Calle                    | Codigo_postal | Ciudad         | Pais   |
++----------+--------------+--------------------------+---------------+----------------+--------+
+| Anoosh   | Peyn         | Alameda dos Canrios, 891 | 36965         | Sao Paulo      | Brazil |
+| Claudi   | Stavenow     | Av. Copacabana, 267      | 34941         | Rio de Janeiro | Brazil |
+| Zhongwei | Rosen        | Av. Ins de Castro, 414   | 14942         | Sao Paulo      | Brazil |
+| Tse      | Herber       | Rua da Panificadora, 12  | 37964         | Rio de Janeiro | Brazil |
++----------+--------------+--------------------------+---------------+----------------+--------+
+4 rows in set (0.0040 sec)
 
 3.-
 
@@ -61,11 +70,81 @@ SELECT a.nombre, a.apellido_pat, b.calle, b.codigo_postal, b.ciudad, b.pais FROM
 
 4.- 
 
+MySQL  localhost:3306 ssl  hospital  SQL > select a.nombre, a.apellido_pat, b.condicion_medica from pacientes a inner join registro_pacientes b on a.paciente_id = b.paciente_id where b.condicion_medica like '%fatigue%';
++-----------+--------------+-------------------------------------+
+| nombre    | apellido_pat | condicion_medica                    |
++-----------+--------------+-------------------------------------+
+| Duangkaew | Piveteau     | Fatigue                             |
+| Mary      | Sluis        | Fatigue From Cancer (Cancer Fatigue |
+| Moss      | Shanbhogue   | Fatigue                             |
+| Lucien    | Rosenbaum    | Fatigue From Cancer (Cancer Fatigue |
++-----------+--------------+-------------------------------------+
+4 rows in set (0.0022 sec)
 
-
-5.-
-
-
+5.- MySQL  localhost:3306 ssl  hospital  SQL > select a.nombre, a.apellido_pat, b.nombre, b.apellido_pat, c.fecha_admision from empleados a inner join registro_pacientes c on a.empleados_id = c.registro_por_empleado_id inner join pacientes b on b.paciente_id = c.paciente_id;
++-----------+--------------+------------+--------------+----------------+
+| nombre    | apellido_pat | nombre     | apellido_pat | fecha_admision |
++-----------+--------------+------------+--------------+----------------+
+| Alejandro | McAlpine     | Georgi     | Facello      | 2017-04-08     |
+| Alejandro | McAlpine     | Karsten    | Joslin       | 2017-05-09     |
+| Breannda  | Billingsley  | Bezalel    | Simmel       | 2017-04-09     |
+| Breannda  | Billingsley  | Jeong      | Reistad      | 2017-05-10     |
+| Tse       | Herber       | Parto      | Bamford      | 2017-04-10     |
+| Tse       | Herber       | Arif       | Merlo        | 2017-05-10     |
+| Anoosh    | Peyn         | Chirstian  | Koblick      | 2017-04-12     |
+| Anoosh    | Peyn         | Bader      | Swan         | 2017-05-11     |
+| Gino      | Leonhardt    | Kyoichi    | Maliniak     | 2017-04-12     |
+| Gino      | Leonhardt    | Alain      | Chappelet    | 2017-05-13     |
+| Udi       | Jansch       | Anneke     | Preusig      | 2017-04-14     |
+| Udi       | Jansch       | Adamantios | Portugali    | 2017-05-14     |
+| Satosi    | Awdeh        | Tzvetan    | Zielinski    | 2017-04-15     |
+| Satosi    | Awdeh        | Pradeep    | Makrucki     | 2017-05-14     |
+| Kwee      | Schusler     | Saniya     | Kalloufi     | 2017-04-15     |
+| Kwee      | Schusler     | Huan       | Lortz        | 2017-05-15     |
+| Claudi    | Stavenow     | Sumant     | Peac         | 2017-04-16     |
+| Claudi    | Stavenow     | Alejandro  | Brender      | 2017-05-16     |
+| Charlene  | Brattka      | Duangkaew  | Piveteau     | 2017-04-17     |
+| Charlene  | Brattka      | Weiyi      | Meriste      | 2017-05-18     |
+| Margareta | Bierman      | Mary       | Sluis        | 2017-04-18     |
+| Margareta | Bierman      | Uri        | Lenart       | 2017-05-18     |
+| Reuven    | Garigliano   | Patricio   | Bridgland    | 2017-04-19     |
+| Reuven    | Garigliano   | Magy       | Stamatiou    | 2017-05-20     |
+| Hisao     | Lipner       | Eberhardt  | Terkki       | 2017-04-20     |
+| Hisao     | Lipner       | Yishay     | Tzvieli      | 2017-05-21     |
+| Hironoby  | Sidou        | Berni      | Genin        | 2017-04-22     |
+| Hironoby  | Sidou        | Mingsen    | Casley       | 2017-05-22     |
+| Shir      | McClurg      | Guoxiang   | Nooteboom    | 2017-04-22     |
+| Shir      | McClurg      | Moss       | Shanbhogue   | 2017-05-23     |
+| Mokhtar   | Bernatsky    | Kazuhito   | Cappelletti  | 2017-04-24     |
+| Mokhtar   | Bernatsky    | Lucien     | Rosenbaum    | 2017-05-23     |
+| Gao       | Dolinsky     | Cristinel  | Bouloucos    | 2017-04-24     |
+| Gao       | Dolinsky     | Zvonko     | Nyanchama    | 2017-05-25     |
+| Erez      | Ritzmann     | Kazuhide   | Peha         | 2017-04-25     |
+| Erez      | Ritzmann     | Florian    | Syrotiuk     | 2017-05-25     |
+| Mona      | Azuma        | Lillian    | Haddadi      | 2017-04-27     |
+| Mona      | Azuma        | Basil      | Tramer       | 2017-05-27     |
+| Danel     | Mondadori    | Mayuko     | Warwick      | 2017-04-28     |
+| Danel     | Mondadori    | Yinghua    | Dredge       | 2017-05-28     |
+| Kshitij   | Gils         | Ramzi      | Erde         | 2017-04-28     |
+| Kshitij   | Gils         | Hidefumi   | Caine        | 2017-05-29     |
+| Premal    | Baek         | Shahaf     | Famili       | 2017-04-30     |
+| Premal    | Baek         | Heping     | Nitsch       | 2017-05-29     |
+| Zhongwei  | Rosen        | Bojan      | Montemayor   | 2017-05-01     |
+| Zhongwei  | Rosen        | Sanjiv     | Zschoche     | 2017-05-31     |
+| Parviz    | Lortz        | Suzette    | Pettey       | 2017-05-01     |
+| Parviz    | Lortz        | Mayumi     | Schueller    | 2017-05-31     |
+| Vishv     | Zockler      | Prasadram  | Heyers       | 2017-05-02     |
+| Vishv     | Zockler      | Georgy     | Dredge       | 2017-06-01     |
+| Tuval     | Kalloufi     | Yongqiao   | Berztiss     | 2017-05-04     |
+| Tuval     | Kalloufi     | Brendon    | Bernini      | 2017-06-02     |
+| Kenroku   | Malabarba    | Divier     | Reistad      | 2017-05-04     |
+| Kenroku   | Malabarba    | Ebbe       | Callaway     | 2017-06-04     |
+| Somnath   | Foote        | Domenick   | Tempesti     | 2017-05-06     |
+| Somnath   | Foote        | Berhard    | McFarlin     | 2017-06-05     |
+| Xinglin   | Eugenio      | Otmar      | Herbst       | 2017-05-07     |
+| Jungsoon  | Syrzycki     | Elvis      | Demeyer      | 2017-05-07     |
++-----------+--------------+------------+--------------+----------------+
+58 rows in set (0.0020 sec)
 
 6.-
 
