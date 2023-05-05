@@ -1,0 +1,21 @@
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/tablasHospital.xlsx - pacientes.csv' INTO TABLE pacientes FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' ignore 1 rows (paciente_id, nombre, apellido_pat, apellido_mat, fecha_nacimiento, peso, altura, numero_seguro_social, genero, telefono_casa, telefono_trabajo, telefono_movil, otros);
+
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/tablasHospital.xlsx - cuartos.csv' INTO TABLE cuartos FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' ignore 1 rows (CUARTO_ID, paciente_id, numero_cuarto, inicio_estadia, fin_estadia);
+
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/tablasHospital.xlsx - empleados.csv' INTO TABLE empleados FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' ignore 1 rows (empleados_id, nombre, apellido_pat, apellido_mat, titulo, fecha_nacimiento, otros);
+
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/tablasHospital.xlsx - direcciones.csv' INTO TABLE direcciones FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' ignore 1 rows (DIRECCION_ID, calle, NUMERO_EXTERIOR, NUMERO_INTERIOR, COLONIA, CODIGO_POSTAL, CIUDAD, ESTADO, PAIS, OTROS);
+
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/tablasHospital.xlsx - formas_pago.csv' INTO TABLE formas_pago FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' ignore 1 rows (FORMA_PAGO_ID, FORMA_PAGO);
+
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/tablasHospital.xlsx - formas_pago_pacientes.csv' INTO TABLE formas_pago_pacientes FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' ignore 1 rows (FORMA_PAGO_PAC_ID, PACIENTE_ID, FORMA_PAGO_ID, DETALLES);
+
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/tablasHospital.xlsx - cuentas_pacientes.csv' INTO TABLE cuentas_pacientes FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' ignore 1 rows (CUENTAS_PACIENTES_ID, PACIENTE_ID, FORMA_PAGO_PAC_ID, FECHA_EMISION, OTROS);
+
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/tablasHospital.xlsx - cuentas_pacientes_detalles.csv' INTO TABLE cuentas_pacientes_detlles FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' ignore 1 rows (CUANTAS_PACIENTES_DET_ID, CUENTAS_PACIENTES_ID, DETALLE, CANTIDAD, CSOTO_TOTAL);
+
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/tablasHospital.xlsx - registro_pacientes.csv' INTO TABLE registro_pacientes FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' ignore 1 rows (REGISTRO_PACIENTE, PACIENTE_ID, CUENTAS_PACIENTES_ID, REGISTRO_POR_EMPLEADO_ID, FECHA_ADMISION, CONDICION_MEDICA, OTROS);
+
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/tablasHospital.xlsx - direcciones_empleados.csv' INTO TABLE direcciones_empleados FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' ignore 1 rows (DIRECCION_EMPLEDOS_ID, EMPLEADOS_ID, DIRECCION_ID);
+
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/tablasHospital.xlsx - direcciones_pacientes.csv' INTO TABLE direcciones_pacientes FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' ignore 1 rows (DIRECCION_PACIENTE_ID, PACIENTE_ID, DIRECCION_ID);
