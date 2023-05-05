@@ -14,6 +14,59 @@ MySQL  localhost:3306 ssl  hospital  SQL > SELECT a.Nombre, a.Apellido_pat, c.Ca
 
 SELECT a.nombre, a.apellido_pat, b.calle, b.codigo_postal, b.ciudad, b.pais FROM empleados a INNER JOIN direcciones_empleados b ON a.empleado_id = b.empleado_id INNER JOIN direcciones c on b.direcion_id = c.direccion_id WHERE d.pais = 'Brazil'
 
+3.-
+
+ MySQL  localhost:3306 ssl  hospital  SQL > select a.nombre, a.apellido_pat, b.numero_cuarto from pacientes a inner join cuartos b on a.paciente_id = b.paciente_id where b.numero_cuarto >= 100 AND b.numero_cuarto < 200;
++------------+--------------+---------------+
+| nombre     | apellido_pat | numero_cuarto |
++------------+--------------+---------------+
+| Georgi     | Facello      |           121 |
+| Bezalel    | Simmel       |           190 |
+| Parto      | Bamford      |           108 |
+| Chirstian  | Koblick      |           179 |
+| Kyoichi    | Maliniak     |           158 |
+| Anneke     | Preusig      |           183 |
+| Tzvetan    | Zielinski    |           142 |
+| Saniya     | Kalloufi     |           108 |
+| Sumant     | Peac         |           100 |
+| Duangkaew  | Piveteau     |           109 |
+| Mary       | Sluis        |           116 |
+| Patricio   | Bridgland    |           182 |
+| Eberhardt  | Terkki       |           180 |
+| Berni      | Genin        |           188 |
+| Guoxiang   | Nooteboom    |           173 |
+| Kazuhito   | Cappelletti  |           176 |
+| Cristinel  | Bouloucos    |           122 |
+| Kazuhide   | Peha         |           155 |
+| Lillian    | Haddadi      |           181 |
+| Mayuko     | Warwick      |           178 |
+| Ramzi      | Erde         |           139 |
+| Shahaf     | Famili       |           119 |
+| Bojan      | Montemayor   |           193 |
+| Suzette    | Pettey       |           153 |
+| Prasadram  | Heyers       |           168 |
+| Yongqiao   | Berztiss     |           115 |
+| Divier     | Reistad      |           140 |
+| Domenick   | Tempesti     |           170 |
+| Otmar      | Herbst       |           153 |
+| Elvis      | Demeyer      |           177 |
+| Karsten    | Joslin       |           101 |
+| Jeong      | Reistad      |           118 |
+| Arif       | Merlo        |           120 |
+| Bader      | Swan         |           156 |
+| Alain      | Chappelet    |           174 |
+| Adamantios | Portugali    |           156 |
++------------+--------------+---------------+
+36 rows in set (0.0018 sec)
+
+4.- 
+
+
+
+5.-
+
+
+
 6.-
 
  MySQL  localhost:3306 ssl  hospital  SQL > select a.nombre, a.apellido_pat, b.Fecha_emision, c.detalle, c.cantidad, c.Csoto_Total, c.cantidad * c.Csoto_Total as adeudo from pacientes a inner join cuentas_pacientes b on a.paciente_id = b.paciente_id inner join cuentas_pacientes_detlles c on b.cuentas_pacientes_id = c.cuentas_pacientes_id;
